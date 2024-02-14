@@ -54,22 +54,23 @@ const showResult2D = (title, containerId, dataArray) => {
     let container = document.getElementById(containerId);
     container.innerHTML = ''; // Clear previous content
     let table = document.createElement('table');
-
-    for (let i = 0; i < dataArray.length; i++) {
-        let tr = document.createElement('tr');
-        for (let j = 0; j < dataArray[i].length; j++) {
-            let td = document.createElement('td');
-            let span = document.createElement('span');
-            span.innerHTML = dataArray[i][j];
-            td.appendChild(span);
-            tr.appendChild(td);
+    try{
+        for (let i = 0; i < dataArray.length; i++) {
+            let tr = document.createElement('tr');
+            for (let j = 0; j < dataArray[i].length; j++) {
+                let td = document.createElement('td');
+                let span = document.createElement('span');
+                span.innerHTML = dataArray[i][j];
+                td.appendChild(span);
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
         }
-        table.appendChild(tr);
-    }
-
-    let caption = table.createCaption();
-    caption.textContent = title;
-    container.appendChild(table);
+    
+        let caption = table.createCaption();
+        caption.textContent = title;
+        container.appendChild(table);
+    }catch(error){}
 }
 
 
