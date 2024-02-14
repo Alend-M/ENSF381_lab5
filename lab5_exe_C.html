@@ -231,7 +231,9 @@ Description : DOM Elements.
 				labels.forEach(label => {
 					const inputId = label.getAttribute("for");
 					const Element = document.getElementById(inputId);
-					Element.placeholder = label.textContent;
+					const capitals = inputId.charAt(0).toUpperCase()+ inputId.slice(1);
+					Element.setAttribute("placeholder", capitals);
+					
 				});
 
 				// Task 6: Set the src attribute of the image
